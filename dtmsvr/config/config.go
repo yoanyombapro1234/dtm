@@ -54,7 +54,7 @@ type Store struct {
 	User               string `yaml:"User"`
 	Password           string `yaml:"Password"`
 	DatabaseName       string `yaml:"DatabaseName" default:"dtx-manager-db"`
-	SslMode            string `yaml:"SslMode" default:"require"`
+	SslMode            string `yaml:"SslMode" default:"disable"`
 	MaxOpenConns       int64  `yaml:"MaxOpenConns" default:"500"`
 	MaxIdleConns       int64  `yaml:"MaxIdleConns" default:"500"`
 	ConnMaxLifeTime    int64  `yaml:"ConnMaxLifeTime" default:"5"`
