@@ -100,17 +100,28 @@ func DbGet(conf dtmcli.DBConf, ops ...func(*gorm.DB)) *DB {
 	dsn := dtmimp.GetDsn(conf)
 	db, ok := dbs.Load(dsn)
 	if !ok {
-		logger.Infof("connecting '%s' '%s' '%s' '%d' '%s' '%s'", conf.Driver, conf.Host, conf.User, conf.Port, conf.DatabaseName, conf.SslMode)
+		logger.Infof("connecting '%s' '%s' '%s' '%d' '%s' '%s' '%s'", conf.Driver, conf.Host, conf.User, conf.Port, conf.DatabaseName, conf.SslMode, dsn)
 		db1, err := gorm.Open(getGormDialetor(conf.Driver, dsn), &gorm.Config{
 			SkipDefaultTransaction: true,
 		})
+
+		if err != nil {
+			logger.Errorf("failed to connect to database", err.Error())
+		}
+
 		dtmimp.E2P(err)
 		err = db1.Use(&tracePlugin{})
+		if err != nil {
+			logger.Errorf("failed to initialize database plugin", err.Error())
+		}
+
 		dtmimp.E2P(err)
 		db = &DB{DB: db1}
 		for _, op := range ops {
 			op(db1)
 		}
+
+		logger.Infof("storing database connection handler %s", dsn)
 		dbs.Store(dsn, db)
 	}
 	return db.(*DB)
