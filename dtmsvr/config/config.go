@@ -53,6 +53,8 @@ type Store struct {
 	Port               int64  `yaml:"Port"`
 	User               string `yaml:"User"`
 	Password           string `yaml:"Password"`
+	DatabaseName       string `yaml:"DatabaseName"`
+	SslMode            string `yaml:"SslMode"`
 	MaxOpenConns       int64  `yaml:"MaxOpenConns" default:"500"`
 	MaxIdleConns       int64  `yaml:"MaxIdleConns" default:"500"`
 	ConnMaxLifeTime    int64  `yaml:"ConnMaxLifeTime" default:"5"`
@@ -71,11 +73,13 @@ func (s *Store) IsDB() bool {
 // GetDBConf returns db conf info
 func (s *Store) GetDBConf() dtmcli.DBConf {
 	return dtmcli.DBConf{
-		Driver:   s.Driver,
-		Host:     s.Host,
-		Port:     s.Port,
-		User:     s.User,
-		Password: s.Password,
+		Driver:       s.Driver,
+		Host:         s.Host,
+		Port:         s.Port,
+		User:         s.User,
+		Password:     s.Password,
+		DatabaseName: s.DatabaseName,
+		SslMode:      s.SslMode,
 	}
 }
 
