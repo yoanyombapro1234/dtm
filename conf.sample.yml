@@ -11,6 +11,8 @@
 #   User: 'root'
 #   Password: ''
 #   Port: 3306
+#   SslMode: 
+#   DatabaseName:
 
 #   Driver: 'boltdb' # default store engine
 
@@ -25,6 +27,8 @@
 #   User: 'postgres'
 #   Password: 'mysecretpassword'
 #   Port: '5432'
+#   SslMode: 
+#   DatabaseName:
 
 ### following config is for only Driver postgres/mysql
 #   MaxOpenConns: 500
