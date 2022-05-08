@@ -11,8 +11,8 @@
 #   User: 'root'
 #   Password: ''
 #   Port: 3306
-#   SslMode: 
-#   DatabaseName:
+#   SslMode: disable
+#   DatabaseName: dtx-manager-db
 
 #   Driver: 'boltdb' # default store engine
 
@@ -27,8 +27,8 @@
 #   User: 'postgres'
 #   Password: 'mysecretpassword'
 #   Port: '5432'
-#   SslMode: 
-#   DatabaseName:
+#   SslMode: disable
+#   DatabaseName: dtx-manager-db
 
 ### following config is for only Driver postgres/mysql
 #   MaxOpenConns: 500
