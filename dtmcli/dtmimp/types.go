@@ -16,9 +16,11 @@ type DB interface {
 
 // DBConf defines db config
 type DBConf struct {
-	Driver   string `yaml:"Driver"`
-	Host     string `yaml:"Host"`
-	Port     int64  `yaml:"Port"`
-	User     string `yaml:"User"`
-	Password string `yaml:"Password"`
+	Driver       string `yaml:"Driver"`
+	Host         string `yaml:"Host"`
+	Port         int64  `yaml:"Port"`
+	User         string `yaml:"User"`
+	Password     string `yaml:"Password"`
+	SslMode      string `yaml:"SslMode"`
+	DatabaseName string `yaml:"DatabaseName"`
 }
