@@ -48,7 +48,7 @@ func GetStore() storage.Store {
 
 // WaitStoreUp wait for db to go up
 func WaitStoreUp() {
-	for err := GetStore().Ping(); err != nil; err = GetStore().Ping() {
+	for err := GetStore().Ping(); err != nil; {
 		logger.Errorf("error occured while pinging database. waiting for store to initialize. %s", err.Error())
 		time.Sleep(3 * time.Second)
 	}
