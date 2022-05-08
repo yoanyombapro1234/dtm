@@ -59,6 +59,7 @@ func P2E(perr *error) {
 // E2P error to panic
 func E2P(err error) {
 	if err != nil {
+		logger.Errorf("error occured. Inducing panic. %s", err.Error())
 		panic(err)
 	}
 }
