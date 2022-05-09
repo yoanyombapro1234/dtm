@@ -144,6 +144,7 @@ func RecoverPanic(err *error) {
 	if x := recover(); x != nil {
 		e := dtmimp.AsError(x)
 		if err != nil {
+			logger.Errorf(e.Error())
 			*err = e
 		}
 	}

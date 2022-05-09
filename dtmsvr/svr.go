@@ -83,6 +83,8 @@ func StartSvr() *gin.Engine {
 	logger.FatalIfError(err)
 	err = dtmdriver.GetHTTPDriver().RegisterService(c.Target, c.EndPoint)
 	logger.FatalIfError(err)
+
+	logger.Infof("Successfully started server")
 	return app
 }
 

@@ -31,6 +31,7 @@ func main() {
 	app, conf := entry.Main(&Version)
 	if app != nil {
 		addAdmin(app, conf)
+		logger.Infof("Successfully started application")
 		select {}
 	}
 }

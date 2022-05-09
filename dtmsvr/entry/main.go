@@ -55,5 +55,7 @@ func Main(version *string) (*gin.Engine, *config.Type) {
 	registry.WaitStoreUp()
 	app := dtmsvr.StartSvr()       // start dtmsvr api
 	go dtmsvr.CronExpiredTrans(-1) // start dtmsvr cron job
+
+	logger.Infof("Successfully started api and cron job")
 	return app, &config.Config
 }
