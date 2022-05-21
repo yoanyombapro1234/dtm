@@ -33,6 +33,7 @@ jobs:
           cd ..
 
       - name: Scp admin
+        continue-on-error: true
         env:
           host: 'ubuntu@en.dtm.pub'
           host2: 'ubuntu@dtm.pub'
