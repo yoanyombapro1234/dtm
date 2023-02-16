@@ -2,10 +2,10 @@ name: Tests
 on:
   push:
     branches-ignore:
-      - 'tmp-*'
+      - "tmp-*"
   pull_request:
     branches-ignore:
-      - 'tmp-*'
+      - "tmp-*"
 
 jobs:
   tests:
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       mysql:
-        image: 'mysql:5.7'
+        image: "mysql:5.7"
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: 1
         volumes:
@@ -22,14 +22,14 @@ jobs:
         ports:
           - 3306:3306
       redis:
-        image: 'redis'
+        image: "redis"
         volumes:
           - /etc/localtime:/etc/localtime:ro
           - /etc/timezone:/etc/timezone:ro
         ports:
           - 6379:6379
       mongo:
-        image: 'yedf/mongo-rs'
+        image: "yedf/mongo-rs"
         volumes:
           - /etc/localtime:/etc/localtime:ro
           - /etc/timezone:/etc/timezone:ro
@@ -39,10 +39,10 @@ jobs:
       - name: Set up Go 1.16
         uses: actions/setup-go@v2
         with:
-          go-version: '1.16'
+          go-version: "1.16"
 
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Install dependencies
         run: |
